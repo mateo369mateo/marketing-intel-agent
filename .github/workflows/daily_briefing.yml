@@ -38,6 +38,7 @@ jobs:
           EMAIL_FROM: ${{ secrets.EMAIL_FROM || secrets.SMTP_USER }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           SMTP_USE_SSL: 'false'
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           python agent.py
 

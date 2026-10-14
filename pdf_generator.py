@@ -155,6 +155,14 @@ def generate_pdf_report(digest: dict, output_filename: str = None) -> str:
         leading=10,
         textColor=colors.HexColor("#2563EB")
     )
+    card_ai_style = ParagraphStyle(
+        'CardAI',
+        parent=styles['Normal'],
+        fontName='Helvetica',
+        fontSize=8.5,
+        leading=12,
+        textColor=colors.HexColor("#3730A3")
+    )
     box_heading_style = ParagraphStyle(
         'BoxHeading',
         parent=styles['Normal'],
@@ -201,10 +209,15 @@ def generate_pdf_report(digest: dict, output_filename: str = None) -> str:
     story.append(HRFlowable(width="100%", thickness=2.5, color=colors.HexColor("#4338CA"), spaceAfter=14))
 
     # 2. Executive Pulse / Strategic Overview Callout Box
+    pulse_label = "🤖 AI EXECUTIVE PULSE & MACRO TRENDS" if digest.get("is_ai_powered") else "EXECUTIVE PULSE & STRATEGIC HIGHLIGHTS"
     pulse_content = [
-        Paragraph("<b>EXECUTIVE PULSE & STRATEGIC HIGHLIGHTS</b>", box_heading_style),
-        Spacer(1, 5)
+        Paragraph(f"<b>{pulse_label}</b>", box_heading_style),
+        Spacer(1, 4)
     ]
+    if digest.get("executive_summary"):
+        pulse_content.append(Paragraph(f"<i>\"{safe_escape(digest['executive_summary'])}\"</i>", box_body_style))
+        pulse_content.append(Spacer(1, 6))
+
     for idx, theme in enumerate(digest.get("themes", []), 1):
         pulse_content.append(
             Paragraph(f"• <b>{safe_escape(theme.split(':')[0])}:</b> {safe_escape(theme.split(':', 1)[-1].strip())}", box_body_style)
@@ -258,6 +271,12 @@ def generate_pdf_report(digest: dict, output_filename: str = None) -> str:
             # Summary
             card_elements.append(Paragraph(safe_escape(art["summary"]), card_body_style))
             card_elements.append(Spacer(1, 3))
+
+            # AI Strategic Takeaway
+            if art.get("ai_insight"):
+                takeaway_text = f"<b>💡 Strategic Takeaway:</b> {safe_escape(art['ai_insight'])}"
+                card_elements.append(Paragraph(takeaway_text, card_ai_style))
+                card_elements.append(Spacer(1, 3))
 
             # Link
             if art.get("url"):

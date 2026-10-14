@@ -15,6 +15,9 @@ else:
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 
+# AI Engine Settings
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "").strip()
+
 # Email / SMTP Settings
 SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com").strip()
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587").strip() or 587)
