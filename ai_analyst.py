@@ -76,7 +76,7 @@ Output strictly valid JSON only without markdown code blocks.
             f"{API_URL}?key={api_key}",
             json=payload,
             headers={"Content-Type": "application/json"},
-            timeout=35
+            timeout=65
         )
 
         if resp.status_code != 200:

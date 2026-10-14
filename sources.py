@@ -5,23 +5,23 @@ Definition of top industry news feeds covering marketing, branding, and advertis
 CATEGORIES = {
     "BRANDING": {
         "title": "Branding & Visual Identity",
-        "description": "Rebrands, identity redesigns, brand positioning, packaging, and equity.",
+        "description": "Rebrands, identity redesigns, brand positioning, packaging, and creative case studies.",
         "badge_color": "#4338CA"  # Indigo
     },
     "ADVERTISING": {
         "title": "Advertising & Creative Campaigns",
-        "description": "Breakthrough ad campaigns, agency moves, creative leadership, and media buying.",
+        "description": "Breakthrough ad campaigns, agency moves, creative leadership, and award-winning commercials.",
         "badge_color": "#E11D48"  # Rose / Crimson
     },
     "MARKETING_TECH": {
         "title": "Marketing Strategy, Social & AdTech",
-        "description": "Digital marketing trends, social media platform updates, AI in marketing, and consumer behavior.",
+        "description": "Digital marketing trends, search marketing (SEO/SEM), platform updates, newsletters, and consumer behavior.",
         "badge_color": "#0D9488"  # Teal
     }
 }
 
 NEWS_SOURCES = [
-    # Advertising & Agencies
+    # --- 1. Advertising & Creative Campaigns ---
     {
         "name": "Adweek",
         "url": "https://www.adweek.com/feed/",
@@ -35,16 +35,28 @@ NEWS_SOURCES = [
         "priority": 1
     },
     {
-        "name": "Industry Ads & Agency Intel",
-        "url": "https://news.google.com/rss/search?q=advertising+campaign+agency+commercial&hl=en-US&gl=US&ceid=US:en",
+        "name": "The Drum",
+        "url": "https://news.google.com/rss/search?q=site:thedrum.com&hl=en-US&gl=US&ceid=US:en",
         "category": "ADVERTISING",
-        "priority": 2
+        "priority": 1
+    },
+    {
+        "name": "Ads of the World",
+        "url": "https://news.google.com/rss/search?q=site:adsoftheworld.com&hl=en-US&gl=US&ceid=US:en",
+        "category": "ADVERTISING",
+        "priority": 1
     },
 
-    # Branding & Visual Identity
+    # --- 2. Branding & Visual Identity ---
     {
         "name": "Brand New (UnderConsideration)",
         "url": "https://www.underconsideration.com/brandnew/atom.xml",
+        "category": "BRANDING",
+        "priority": 1
+    },
+    {
+        "name": "BP&O (Branding, Packaging & Opinion)",
+        "url": "https://bpando.org/feed/",
         "category": "BRANDING",
         "priority": 1
     },
@@ -55,13 +67,19 @@ NEWS_SOURCES = [
         "priority": 2
     },
     {
-        "name": "Brand Identity & Rebrands",
+        "name": "Marketing Examples",
+        "url": "https://news.google.com/rss/search?q=site:marketingexamples.com&hl=en-US&gl=US&ceid=US:en",
+        "category": "BRANDING",
+        "priority": 2
+    },
+    {
+        "name": "Brand Identity & Rebrands Feed",
         "url": "https://news.google.com/rss/search?q=branding+rebrand+logo+identity+packaging&hl=en-US&gl=US&ceid=US:en",
         "category": "BRANDING",
         "priority": 2
     },
 
-    # Marketing, Social & MarTech
+    # --- 3. Marketing Strategy, Newsletters & MarTech ---
     {
         "name": "Marketing Dive",
         "url": "https://www.marketingdive.com/feeds/news/",
@@ -69,10 +87,34 @@ NEWS_SOURCES = [
         "priority": 1
     },
     {
+        "name": "Marketing Brew",
+        "url": "https://news.google.com/rss/search?q=%22Marketing+Brew%22&hl=en-US&gl=US&ceid=US:en",
+        "category": "MARKETING_TECH",
+        "priority": 1
+    },
+    {
+        "name": "TLDR Marketing",
+        "url": "https://tldr.tech/api/rss/marketing",
+        "category": "MARKETING_TECH",
+        "priority": 1
+    },
+    {
+        "name": "Stacked Marketer",
+        "url": "https://news.google.com/rss/search?q=site:stackedmarketer.com&hl=en-US&gl=US&ceid=US:en",
+        "category": "MARKETING_TECH",
+        "priority": 1
+    },
+    {
+        "name": "Search Engine Land",
+        "url": "https://news.google.com/rss/search?q=site:searchengineland.com&hl=en-US&gl=US&ceid=US:en",
+        "category": "MARKETING_TECH",
+        "priority": 1
+    },
+    {
         "name": "Digiday",
         "url": "https://digiday.com/feed/",
         "category": "MARKETING_TECH",
-        "priority": 1
+        "priority": 2
     },
     {
         "name": "Social Media Today",
