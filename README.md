@@ -2,6 +2,8 @@
 
 An automated intelligence agent that tracks breaking news across the marketing, branding, and advertising landscape, synthesizes executive insights, compiles a styled PDF briefing, and delivers it directly to **Telegram** and **Email**.
 
+> **Project Conversation**: [Marketing News Aggregator Agent](conversation://d98ad034-1fec-4c23-969b-75d29a592d7b) • See [Conversation Record](docs/conversations/marketing-news-aggregator-agent.md)
+
 ---
 
 ## ⚡ What it Does
@@ -28,6 +30,7 @@ An automated intelligence agent that tracks breaking news across the marketing, 
 ```
 marketing-intel-agent/
 ├── agent.py               # Main CLI orchestrator (run, dry-run, test)
+├── ai_analyst.py          # Cognitive Gemini AI strategic analyst
 ├── config.py              # Configuration & environment variable loader
 ├── sources.py             # Curated list of RSS/Atom feeds and category metadata
 ├── fetcher.py             # Parallel feed fetcher, parser & deduplicator
@@ -37,6 +40,8 @@ marketing-intel-agent/
 ├── .env.example           # Credential template
 ├── .env                   # Your local secrets (Telegram & Email)
 ├── reports/               # Output directory where generated PDFs are stored
+├── docs/                  # Architecture guides and project conversation records
+│   └── conversations/     # Linked Antigravity conversations & history
 └── .agents/skills/        # Antigravity skill definition
 ```
 
